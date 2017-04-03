@@ -1,0 +1,57 @@
+<html>
+  <body>
+    <script src="../dist/lightwallet.min.js"></script>
+    <script type="text/javascript" src="../node_modules/web3/dist/web3.js"></script>
+    <script type="text/javascript" src="../node_modules/hooked-web3-provider/build/hooked-web3-provider.js"></script>
+    <script type="text/javascript" src="../node_modules/async/lib/async.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./webwallet.js"></script>
+    <script type="text/javascript" src="./abi.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   
+    <h1>Patient registreer Consent</h1>
+    <h2>Nieuwe patient</h2>
+    <div><input type="text" id="userEntropy" placeholder="Willekeurige tekst invullen" size="80"></input><button onclick="newWallet()">Create New Wallet</button></div>
+    <h2>Bestaande patient</h2>
+
+      <div>Patient: <select id="patientID" name="Johan">
+       <option value="design modify whale merry initial goddess sword dirt list foster pulp captain">1</option>
+       <option value="reason street main leave tissue dawn end act swap dawn tenant forum">2</option>
+       <option value="engage scatter desert drum broom flight wave avocado also about expand rely">3</option></select></div>
+    <div ><input type="text" id="seed" value="" size="80"></input><button onclick="setSeed()">Login als </button></div>
+    <div>Contract Address: <input type="text" size="40" id="selected"></input></div>
+     <div id="registreerConsent" ></div>
+    <div id="metric_results"></div>
+    
+    <h2>Publieke Identifier</h2>
+    <div id="addr"><input type="text" id="numAddr" size="5" value="3"></input> </input> </div>
+    <div><button onClick='getBalances()'>Refresh view</button></div>
+    <h2>Send Ether</h2>
+    <div>From: <select id="sendFrom"></select></div>
+    <div>To: <input type="text" size="40" id="sendTo"></input></div>
+    <div>Ether: <input type="text" id="sendValueAmount"></div>
+    <div><button onclick="sendEth()">Send Ether</button></div>
+    <h2>Show Seed</h2>
+    <button onclick="showSeed()">Show Seed</button>
+    <h2>Function Call</h2>
+    <div>Caller: <input type="text" size="40" id="functionCaller"></input></div>
+    <div>Caller: <select id="functionCaller"></select></div>
+    <div>Contract Address: <input type="text" size="40" id="contractAddr"></input></div>
+    <div>Contract ABI: <input type="text" size="40" id="contractAbi"></input></div>
+    <div>Function Name: <input type="text" size="20" id="functionName"></input></div>
+    <div>Function Arguments: <input type="text" size="40" id="functionArgs"></input></div>
+    <div>Value (Ether): <input type="text" id="sendValueAmount"></div>
+    <div><button onclick="functionCall()">Roep alle records op voor betreffende patient</button></div
+   
+    <div>Show <input type="text" id="numAddr" size="5" value="3"></input> more address(es) <button onclick="newAddresses('')">Create 3 new addresses</button></div>
+
+
+  </body>
+</html>

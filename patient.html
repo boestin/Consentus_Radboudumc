@@ -1,0 +1,83 @@
+<html>
+  <body>
+    <script src="../dist/lightwallet.min.js"></script>
+    <script type="text/javascript" src="../node_modules/web3/dist/web3.js"></script>
+    <script type="text/javascript" src="../node_modules/hooked-web3-provider/build/hooked-web3-provider.js"></script>
+    <script type="text/javascript" src="../node_modules/async/lib/async.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./webwallet.js"></script>
+    <script type="text/javascript" src="./abi.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   
+    <h1>Patient registreer Consent</h1>
+    <h2>Nieuwe patient</h2>
+    <div><input type="text" id="userEntropy" placeholder="Willekeurige tekst invullen" size="80"></input><button onclick="newWallet()">Nieuwe patient registreren op blockchain</button></div>
+    <h2>Patient inloggen</h2>
+
+      <div>Patient: <select id="patientID" name="Johan">
+       <option value="design modify whale merry initial goddess sword dirt list foster pulp captain">Jan Janssen</option>
+       <option value="reason street main leave tissue dawn end act swap dawn tenant forum">Piet Pietersen</option>
+       <option value="engage scatter desert drum broom flight wave avocado also about expand rely">Sven Ronaldsen</option></select><button onclick="setSeed()">Login</button></div>
+    <div ><input style="display: none" type="text" id="seed" value="" size="80"></input></div>
+    <div  style="display: none">Contract Address: <input id="loginAlsAddr" type="text" size="40" id="selected"></input></div>
+
+<!-- Hier komt registratie -->
+<div id="setConsent" style="display: none">
+  <h4>Uw persoonlijke Identifier</h4>
+    <div id="addr"><input type="text" id="numAddr" size="5" value="3"></input> </input> </div>
+    <div><button onClick='getBalances()'>Ververs saldo</button></div>
+<h2>Consent vastleggen</h2>
+<h4>Selecteer bron ziekenhuis</h4>
+<div id="bronzkh" class="btn-group" data-toggle="buttons" >
+  
+    <button type="radio" name="options" id="option1" onclick="pieter(this.innerText);" autocomplete="off"> RadboudUMC </button>
+    <button type="radio" name="options" id="option2" onclick="pieter(this.innerText);" autocomplete="off"> LUMC</button>
+    <button type="radio" name="options" id="option3" onclick="pieter(this.innerText);" autocomplete="off"> Rijnstate</button>
+  
+
+ <h4>Selecteer doel ziekenhuis</h4> 
+    <button type="radio" name="options" id="option4" onclick="pietertje(this.innerText);" autocomplete="off"> RadboudUMC </button>
+    <button type="radio" name="options" id="option5" onclick="pietertje(this.innerText);" autocomplete="off"> LUMC</button>
+    <button type="radio" name="options" id="option6" onclick="pietertje(this.innerText);" autocomplete="off"> Rijnstate</button>
+  <div>
+
+</div>
+ <div id="test1"> </div>
+</div>   
+ <div>
+</div>
+    <div id="registreerConsent" ></div>
+     <div></br><h2>Overzicht van openstaande consents</h2>
+</div>
+    <div id="metric_results"></div>
+    <div id="metric_result"></br></div>
+    
+    
+    <div style="display: none" >
+    <h2>Send Ether</h2>
+    <div>From: <select id="sendFrom"></select></div>
+    <div>To: <input type="text" size="40" id="sendTo"></input></div>
+    <div>Ether: <input type="text" id="sendValueAmount"></div>
+    <div><button onclick="sendEth()">Send Ether</button></div>
+    <h2>Show Seed</h2>
+    <button onclick="showSeed()">Show Seed</button>
+    <h2>Function Call</h2>
+    <div>Caller: <input type="text" size="40" id="functionCaller"></input></div>
+    <div>Caller: <select id="functionCaller"></select></div>
+    <div>Contract Address: <input type="text" size="40" id="contractAddr"></input></div>
+    <div>Contract ABI: <input type="text" size="40" id="contractAbi"></input></div>
+    <div>Function Name: <input type="text" size="20" id="functionName"></input></div>
+    <div>Function Arguments: <input type="text" size="40" id="functionArgs"></input></div>
+    <div>Value (Ether): <input type="text" id="sendValueAmount"></div>
+    </div>
+   
+    <div style="display: none">Show <input type="text" id="numAddr" size="5" value="3"></input> more address(es) <button onclick="newAddresses('')">Create 3 new addresses</button></div>
+  </body>
+</html>

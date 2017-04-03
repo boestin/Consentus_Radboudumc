@@ -1,0 +1,202 @@
+<title>Registration Form</title>
+<script>
+    var table;
+
+    function check() {
+        debugger;
+        var name = document.myForm.name.value;
+        if (name == "" || name == null) {
+            document.getElementById("span1").innerHTML = "Please enter the Name";
+            document.myform.name.focus();
+            document.getElementById("name").style.border = "2px solid red";
+            return false;
+        }
+        else {
+            document.getElementById("span1").innerHTML = "";
+            document.getElementById("name").style.border = "2px solid green";
+        }
+
+        var age = document.myForm.age.value;
+        var ageFormat = /^(([1][8-9])|([2-5][0-9])|(6[0]))$/gm;
+
+        if (age == "" || age == null) {
+            document.getElementById("span2").innerHTML = "Please provide Age";
+            document.myForm.age.focus();
+            document.getElementById("age").style.border = "2px solid red";
+            return false;
+        }
+        else if (!ageFormat.test(age)) {
+            document.getElementById("span2").innerHTML = "Age can't be leass than 18 and greater than 60";
+            document.myForm.age.focus();
+            document.getElementById("age").style.border = "2px solid red";
+            return false;
+        }
+        else {
+            document.getElementById("span2").innerHTML = "";
+            document.getElementById("age").style.border = "2px solid green";
+        }
+
+        var password = document.myForm.password.value;
+        if (document.myForm.password.length < 6) {
+            alert("Error: Password must contain at least six characters!");
+            document.myForm.password.focus();
+            document.getElementById("password").style.border = "2px solid red";
+            return false;
+        }
+        re = /[0-9]/g;
+        if (!re.test(password)) {
+            alert("Error: password must contain at least one number (0-9)!");
+            document.myForm.password.focus();
+            document.getElementById("password").style.border = "2px solid red";
+            return false;
+        }
+        re = /[a-z]/g;
+        if (!re.test(password)) {
+            alert("Error: password must contain at least one lowercase letter (a-z)!");
+            document.myForm.password.focus();
+            document.getElementById("password").style.border = "2px solid red";
+            return false;
+        }
+        re = /[A-Z]/g;
+        if (!re.test(password)) {
+            alert("Error: password must contain at least one uppercase letter (A-Z)!");
+            document.myForm.password.focus();
+            document.getElementById("password").style.border = "2px solid red";
+            return false;
+        }
+        re = /[$&+,:;=?@#|'<>.^*()%!-]/g;
+        if (!re.test(password)) {
+            alert("Error: password must contain at least one special character!");
+            document.myForm.password.focus();
+            document.getElementById("password").style.border = "2px solid red";
+            return false;
+        }
+        else {
+            document.getElementById("span3").innerHTML = "";
+            document.getElementById("password").style.border = "2px solid green";
+
+        }
+
+        if (document.getElementById("data") == null)
+            createTable();
+        else {
+            appendRow();
+        }
+        return true;
+    }
+
+
+
+
+
+
+    function createTable() {
+
+        var myTableDiv = document.getElementById("myTable");  //indiv
+        table = document.createElement("TABLE");   //TABLE??
+        table.setAttribute("id", "data");
+        table.border = '1';
+        myTableDiv.appendChild(table);  //appendChild() insert it in the document (table --> myTableDiv)
+        debugger;
+
+        var header = table.createTHead();
+
+        var th0 = table.tHead.appendChild(document.createElement("th"));
+        th0.innerHTML = "Name";
+        var th1 = table.tHead.appendChild(document.createElement("th"));
+        th1.innerHTML = "Age";
+
+
+        appendRow();
+
+    }
+
+    function appendRow() {
+        var name = document.myForm.name.value;
+        var age = document.myForm.age.value;
+
+
+        var rowCount = table.rows.length;
+        var row = table.insertRow(rowCount);
+
+        row.insertCell(0).innerHTML = name;
+        row.insertCell(1).innerHTML = age;
+
+
+
+        clearForm();
+
+
+    }
+
+
+    function clearForm() {
+        debugger;
+
+        document.myForm.name.value = "";
+        document.myForm.password.value = "";
+        document.myForm.age.value = "";
+
+
+
+    }
+    function restrictCharacters(evt) {
+
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (((charCode >= '65') && (charCode <= '90')) || ((charCode >= '97') && (charCode <= '122')) || (charCode == '32')) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+</script>
+
+
+
+<div>
+    <form name="myForm">
+
+        <table id="tableid">
+
+            <tr>
+                <th>Name</th>
+                <td>
+                    <input type="text" name="name" placeholder="Name" id="name" onkeypress="return restrictCharacters(event);" /></td>
+                <td><span id="span1"></span></td>
+            </tr>
+
+            <tr>
+                <th>Age</th>
+
+                <td>
+                    <input type="text" onkeypress="return event.charCode === 0 || /\d/.test(String.fromCharCode(event.charCode));" placeholder="Age"
+                        name="age" id="age" /></td>
+                <td><span id="span2"></span></td>
+            </tr>
+
+            <tr>
+                <th>Password</th>
+                <td>
+                    <input type="password" name="password" id="password" placeholder="Password" /></td>
+                <td><span id="span3"></span></td>
+            </tr>
+
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="Submit" onclick="check();" /></td>
+                <td>
+                    <input type="reset" name="Reset" /></td>
+            </tr>
+
+        </table>
+    </form>
+
+    <div id="myTable">
+    </div>
+
+</div>
