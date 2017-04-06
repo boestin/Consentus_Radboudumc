@@ -51,7 +51,7 @@ function getBalances() {
       document.getElementById('addr').innerHTML = ''
       document.getElementById('functionCaller').value = addresses[0]
       currentPatient = '0x' + addresses[0]
-//console.log(lightwallet.signing.signMsg(global_keystore,pwDerivedKeyUint8array, 'Hallo', currentPatient));
+//console.log(lightwallet.signing.signMsg(global_keystore,pwDerivedKeyUint8array, 'Hallo dit is een test', currentPatient));
 //console.log(lightwallet.signing.signMsg(global_keystore, 'Password', 'Hallo', currentPatient));
       //   for (var i=0; i<addresses.length; ++i) {
       document.getElementById('addr').innerHTML += '<div> <b>0x' + addresses[0] + '</b> (Bal: ' + (balances[0] / 1.0e18) + ' ETH)' + '</div>'
